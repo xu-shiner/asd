@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="node_modules/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="mydivs">
+    <div id="mydiv1">
+        <!--{{username}},你好!
+        <input v-model="username">-->
+       姓名: <input v-model="username">  <br>
+        年龄:{{age}} <!--<button v-on:click="age++">下一年</button>-->
+        <button @click="age++">下一年</button>
+    </div>
+    <div id="mydiv2">
+        {{username}},你好!
+    </div>
+    <div id="mydiv3">
+        <input v-model="a">+<input v-model="b"><button v-on:click="add()">等于</button><input v-model="c">
+    </div>
+</div>
+<script>
+    new Vue({
+        el:"#mydivs", //vue的控制范围
+        data:{         //定义数据
+            username:"张三",
+            age:20,
+            a:0,
+            b:0,
+            c:0
+        },
+        methods:{
+            add:function () {
+                this.c=parseInt(this.a)+parseInt(this.b);
+            }
+        }
+    })
+</script>
+</body>
+</html>
